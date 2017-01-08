@@ -4,6 +4,7 @@
 
 ```csharp
 using Cocotte;
+
 // ...
 
 var consumer = "sample"; // name of the application/daemon/microservice/thing
