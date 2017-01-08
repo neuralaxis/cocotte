@@ -10,8 +10,9 @@ before_build:
 
 build_script: 
     - ps: |
+        $suffix = Get-Date -format "yyyyMMddhhss"
         dotnet restore
-        dotnet pack Cocotte\Cocotte.csproj -c Release -o ..\artifacts --version-suffix ${env:APPVEYOR_BUILD_VERSION}-prerelease 
+        dotnet pack Cocotte\Cocotte.csproj -c Release -o ..\artifacts --version-suffix ${suffix}-prerelease 
 test: off
 
 after_build:
