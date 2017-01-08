@@ -3,27 +3,26 @@
 
 ```csharp
 
-        using (var coco = new Client(new Uri("amqp://localhost:5672/"), "pubsubsample", "events"))
-        { 
-            coco.Subscribe("client.created", (json) =>
-            {
-                Console.WriteLine($"received created: json {json}");
-            });
+using (var coco = new Client(new Uri("amqp://localhost:5672/"), "pubsubsample", "events"))
+{ 
+    coco.Subscribe("client.created", (json) =>
+    {
+        Console.WriteLine($"received created: json {json}");
+    });
 
-            coco.Subscribe<Msg>("client.updated", (msg) =>
-            {
-                Console.WriteLine($"received updated: object {msg.ClientId}");
-            });
+    coco.Subscribe<Msg>("client.updated", (msg) =>
+    {
+        Console.WriteLine($"received updated: object {msg.ClientId}");
+    });
 
-            coco.Subscribe<Msg>("client.*", (msg) =>
-            {
-                Console.WriteLine($"received all: object {msg.ClientId}");
-            });
+    coco.Subscribe<Msg>("client.*", (msg) =>
+    {
+        Console.WriteLine($"received all: object {msg.ClientId}");
+    });
 
-            coco.Publish("client.created", new Msg { ClientId = "created client" });
-            coco.Publish("client.updated", new Msg { ClientId = "updated client" });
-            Console.WriteLine("messages sent");
+    coco.Publish("client.created", new Msg { ClientId = "created client" });
+    coco.Publish("client.updated", new Msg { ClientId = "updated client" });
 
-            coco.Wait();
-        }
+    coco.Wait();
+}
 ```
