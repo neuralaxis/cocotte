@@ -30,7 +30,7 @@ using (var coco = new Client(new Uri("amqp://localhost:5672/"), topic, exchange)
     coco.Wait();
 }
 class ClientEvent
-    {
-        public string ClientId;
-    }
+{
+    public string ClientId;
+}
 ```
