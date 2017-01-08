@@ -9,6 +9,7 @@ var exchange = "events"; // the rabbitmq exchange
 
 using (var coco = new Client(new Uri("amqp://localhost:5672/"), consumer, exchange))
 { 
+    //creates a queue called sample-client.created
     coco.Subscribe("client.created", (json) =>
     {
         Console.WriteLine($"received created: json {json}"); // { "ClientId": "created client" }
