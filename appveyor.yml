@@ -12,13 +12,13 @@ build_script:
     - ps: |
         $suffix = Get-Date -format "yyyyMMddhhss"
         dotnet restore
-        dotnet pack Cocotte\Cocotte.csproj -c Release -o ..\artifacts --version-suffix ${suffix}-prerelease 
+        dotnet pack Cocotte\Cocotte.csproj -c Release -o ..\ --version-suffix ${suffix}-prerelease 
 test: off
 
 after_build:
 
 artifacts:
-  - path: 'artifacts\*.nupkg'
+  - path: '*.nupkg'
 
 deploy: off
 

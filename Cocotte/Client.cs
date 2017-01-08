@@ -21,7 +21,10 @@ namespace Cocotte
 
         public Client(Uri connectionString, string exchange, string consumer)
         {
-            _connection = new ConnectionFactory { Uri = connectionString.ToString() }.CreateConnection();
+            var factory = new ConnectionFactory();
+            factory.SetUri(connectionString);
+
+            _connection = factory.CreateConnection();
             _exchange = exchange;
             _consumer = consumer;
             _model = _connection.CreateModel();
