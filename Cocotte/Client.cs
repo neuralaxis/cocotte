@@ -12,12 +12,13 @@ namespace Cocotte
     {
         readonly Encoding Encoding = Encoding.UTF8;
 
-        readonly IModel _model;
         readonly string _exchange;
         readonly string _consumer;
-        IConnection _connection;
         readonly ManualResetEvent _wait;
-        List<TopicSubscription> _subs = new List<TopicSubscription>();
+
+        readonly IModel _model;
+        readonly IConnection _connection;
+        readonly IList<TopicSubscription> _subs = new List<TopicSubscription>();
 
         public Client(Uri connectionString, string exchange, string consumer)
         {
@@ -29,6 +30,7 @@ namespace Cocotte
             _consumer = consumer;
             _model = _connection.CreateModel();
             _model.ExchangeDeclare(exchange, "topic");
+            _wait = new ManualResetEvent(false);
         }
 
         public void Subscribe<T>(string routingKey, Action<T> handler)
@@ -53,8 +55,6 @@ namespace Cocotte
                  var msg = deserialize(body);
                  handler(msg);
              }));
-
-
         }
 
         public void Publish<T>(string routingKey, T msg)
