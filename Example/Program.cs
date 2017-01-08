@@ -12,7 +12,7 @@ class Program
         var mode = "both";
         if (args.Length > 0) mode = args[0];
 
-        using (var coco = new Client(new Uri("amqp://localhost:5672/"), "events", "example"))
+        using (var coco = new TopicClient(new Uri("amqp://localhost:5672/"), "events", "example"))
         {
 
             if (mode == "both" || mode == "sub")

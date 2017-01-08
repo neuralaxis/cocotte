@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace Cocotte
 {
-    public class Client : IDisposable, IPublisher, ISubscriber
+    public class TopicClient : IDisposable, IPublisher, ISubscriber
     {
         readonly Encoding Encoding = Encoding.UTF8;
 
@@ -20,7 +20,7 @@ namespace Cocotte
         readonly IConnection _connection;
         readonly IList<TopicSubscription> _subs = new List<TopicSubscription>();
 
-        public Client(Uri connectionString, string exchange, string consumer)
+        public TopicClient(Uri connectionString, string exchange, string consumer)
         {
             var factory = new ConnectionFactory();
             factory.SetUri(connectionString);
