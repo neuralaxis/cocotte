@@ -21,8 +21,18 @@ artifacts:
   - path: '*.nupkg'
 
 deploy:
-  provider: NuGet
-  api_key:
-    secure: VZtsWSp+IPDV2YwN9NYTB2OzrGKvLbQ8YXEVFKh0c4VpifLMM6rTOKjlr5tX0GHa
-  skip_symbols: false
-  artifact: /.*\.nupkg/
+  - provider: NuGet
+    api_key:
+      secure: VZtsWSp+IPDV2YwN9NYTB2OzrGKvLbQ8YXEVFKh0c4VpifLMM6rTOKjlr5tX0GHa
+    skip_symbols: false
+    artifact: /.*\.nupkg/
+  - provider: GitHub
+    release: Cocotte-1.0.0-${suffix}-prerelease
+    auth_token:
+      secure: kUMeoWO/oT10iK48pt5vwP956PhRG0ItlD7fm3ebveGf6zUs5yPdoOHzRzPX+Jp8
+    artifact: /.*\.nupkg/           
+    draft: true
+    description: Cocotte release
+    prerelease: true
+    on:
+      branch: master                
