@@ -38,3 +38,10 @@ class ClientEvent
     public string ClientId;
 }
 ```
+
+Further reading:
+https://www.rabbitmq.com/
+http://microservices.io/patterns/data/event-driven-architecture.html
+http://udidahan.com/2007/02/02/queues-scalability-availability/
+http://www.enterpriseintegrationpatterns.com/patterns/messaging/CompetingConsumers.html
+
