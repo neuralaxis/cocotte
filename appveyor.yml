@@ -20,13 +20,6 @@ after_build:
 artifacts:
   - path: '*.nupkg'
 
-deploy: off
-
-nuget:
-  account_feed: true
-  project_feed: true
-  disable_publish_on_pr: true
-
 deploy:
   provider: NuGet
   api_key:
