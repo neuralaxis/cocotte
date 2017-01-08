@@ -1,4 +1,5 @@
 # Really simple pub/sub messaging using RabbitMQ for .NET Core apps
+![AppVeyor build](https://ci.appveyor.com/api/projects/status/github/neuralaxis/cocotte?branch=master&svg=true)
 
 
 ```csharp
