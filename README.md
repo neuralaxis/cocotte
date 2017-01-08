@@ -1,13 +1,13 @@
-# Really simple pub/sub messaging using RabbitMQ for .NET Core apps
+# Really simple competing consumers-style pub/sub messaging using RabbitMQ for .NET Core apps
 ![AppVeyor build](https://ci.appveyor.com/api/projects/status/github/neuralaxis/cocotte?branch=master&svg=true)
 
 
 ```csharp
 
-var topic = "sample"; // or application name to create a queue specific for this microservice/app/process/daemon/sidecar/thing.
+var consumer = "sample"; // used as prefix for subscription queues. name of the application/daemon/microservice/thing is probably good.
 var exchange = "events"; // the rabbitmq exchange
 
-using (var coco = new Client(new Uri("amqp://localhost:5672/"), topic, exchange))
+using (var coco = new Client(new Uri("amqp://localhost:5672/"), consumer, exchange))
 { 
     coco.Subscribe("client.created", (json) =>
     {
