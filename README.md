@@ -4,7 +4,7 @@
 
 ```csharp
 
-var consumer = "sample"; // used as prefix for subscription queues. name of the application/daemon/microservice/thing is probably good.
+var consumer = "sample"; // name of the application/daemon/microservice/thing
 var exchange = "events"; // the rabbitmq exchange
 
 using (var coco = new Client(new Uri("amqp://localhost:5672/"), consumer, exchange))
