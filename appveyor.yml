@@ -26,3 +26,10 @@ nuget:
   account_feed: true
   project_feed: true
   disable_publish_on_pr: true
+
+deploy:
+  provider: NuGet
+  api_key:
+    secure: VZtsWSp+IPDV2YwN9NYTB2OzrGKvLbQ8YXEVFKh0c4VpifLMM6rTOKjlr5tX0GHa
+  skip_symbols: false
+  artifact: /.*\.nupkg/
