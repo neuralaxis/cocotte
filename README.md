@@ -3,7 +3,10 @@
 
 ```csharp
 
-using (var coco = new Client(new Uri("amqp://localhost:5672/"), "pubsubsample", "events"))
+var topic = "sample"; // or application name to create a queue specific for this microservice/app/process/daemon/sidecar/thing.
+var exchange = "events"; // the rabbitmq exchange
+
+using (var coco = new Client(new Uri("amqp://localhost:5672/"), topic, exchange))
 { 
     coco.Subscribe("client.created", (json) =>
     {
