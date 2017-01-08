@@ -10,7 +10,6 @@ namespace Cocotte
     {
         readonly IModel _model;
         readonly EventingBasicConsumer _consumer;
-        readonly string _topic;
         public TopicSubscription(IConnection conn, string exchange, string consumer, string routingKey, Action<byte[]> handler)
         {
             _model = conn.CreateModel();
