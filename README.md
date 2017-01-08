@@ -39,10 +39,10 @@ class ClientEvent
 }
 ```
 
-Further reading:
+##Further reading:
 
-[RabbitMQ Home Page](https://www.rabbitmq.com/)
-[Event Driven Architectures on microservices.io](http://microservices.io/patterns/data/event-driven-architecture.html)
-[Udi Dahan on Competing Consumers](http://udidahan.com/2007/02/02/queues-scalability-availability/)
-[Martin Fowler on CS](http://www.enterpriseintegrationpatterns.com/patterns/messaging/CompetingConsumers.html)
+* [RabbitMQ Home Page](https://www.rabbitmq.com/)
+* [Event Driven Architectures on microservices.io](http://microservices.io/patterns/data/event-driven-architecture.html)
+* [Udi Dahan on Competing Consumers](http://udidahan.com/2007/02/02/queues-scalability-availability/)
+* [Martin Fowler on CS](http://www.enterpriseintegrationpatterns.com/patterns/messaging/CompetingConsumers.html)
 
