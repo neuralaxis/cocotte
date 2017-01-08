@@ -7,22 +7,26 @@ using (var coco = new Client(new Uri("amqp://localhost:5672/"), "pubsubsample", 
 { 
     coco.Subscribe("client.created", (json) =>
     {
-        Console.WriteLine($"received created: json {json}");
+        Console.WriteLine($"received created: json {json}"); // { "ClientId": "created client" }
     });
 
-    coco.Subscribe<Msg>("client.updated", (msg) =>
+    coco.Subscribe<ClientEvent>("client.updated", (msg) =>
     {
         Console.WriteLine($"received updated: object {msg.ClientId}");
     });
 
-    coco.Subscribe<Msg>("client.*", (msg) =>
+    coco.Subscribe<ClientEvent>("client.*", (msg) =>
     {
         Console.WriteLine($"received all: object {msg.ClientId}");
     });
 
-    coco.Publish("client.created", new Msg { ClientId = "created client" });
-    coco.Publish("client.updated", new Msg { ClientId = "updated client" });
+    coco.Publish("client.created", new ClientEvent { ClientId = "created client" });
+    coco.Publish("client.updated", new ClientEvent { ClientId = "updated client" });
 
     coco.Wait();
 }
+class ClientEvent
+    {
+        public string ClientId;
+    }
 ```
