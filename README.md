@@ -3,11 +3,13 @@
 
 
 ```csharp
+using Cocotte;
+// ...
 
 var consumer = "sample"; // name of the application/daemon/microservice/thing
 var exchange = "events"; // the rabbitmq exchange
 
-using (var coco = new Client(new Uri("amqp://localhost:5672/"), consumer, exchange))
+using (var coco = new TopicClient(new Uri("amqp://localhost:5672/"), consumer, exchange))
 { 
     //creates a queue called sample-client.created
     coco.Subscribe("client.created", (json) =>
