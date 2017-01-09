@@ -15,9 +15,9 @@ namespace Cocotte
         private string _consumer;
         internal IList<TopicHandlerSubscription> Handlers = new List<TopicHandlerSubscription>();
 
-        public Uri Uri { get => _uri; set => _uri = value ?? throw new ArgumentNullException(nameof(value)); }
-        public string Exchange { get => _exchange; set { if (String.IsNullOrEmpty(value)) { throw new ArgumentNullException(nameof(value)); } _exchange = value; } }
-        public string Consumer { get => _consumer; set { if (String.IsNullOrEmpty(value)) { throw new ArgumentNullException(nameof(value)); } _consumer = value; } }
+        public Uri Uri { get { return _uri; } set { _uri = value ?? throw new ArgumentNullException(nameof(value)); } }
+        public string Exchange { get { return _exchange; } set { if (String.IsNullOrEmpty(value)) { throw new ArgumentNullException(nameof(value)); } _exchange = value; } }
+        public string Consumer { get { return _consumer; } set { if (String.IsNullOrEmpty(value)) { throw new ArgumentNullException(nameof(value)); } _consumer = value; } }
 
         public void AddHandler<THandler,TMessage>(string binding, THandler handler) where THandler: IHandler<TMessage>
         {
