@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Cocotte
+namespace Cocotte.Configuration
 {
     /// <summary>
     /// Configuration options for Cocotte
