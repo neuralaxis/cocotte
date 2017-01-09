@@ -14,7 +14,6 @@ class Program
 
         using (var coco = new TopicClient(new Uri("amqp://localhost:5672/"), "events", "example"))
         {
-
             if (mode == "both" || mode == "sub")
             {
                 coco.Subscribe("client.created", (json) =>
