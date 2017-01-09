@@ -1,6 +1,6 @@
 ﻿namespace Cocotte
 {
-    interface IPublisher
+    public interface IPublisher
     {
         void Publish<T>(string topic, T msg);
     }
