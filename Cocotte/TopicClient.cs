@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using RabbitMQ.Client;
-using RabbitMQ.Client.Events;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,7 +17,7 @@ namespace Cocotte
 
         readonly IModel _model;
         readonly IConnection _connection;
-        readonly IList<TopicSubscription> _subs = new List<TopicSubscription>();
+        readonly ICollection<TopicSubscription> _subs = new List<TopicSubscription>();
 
         public TopicClient(Uri connectionString, string exchange, string consumer)
         {
